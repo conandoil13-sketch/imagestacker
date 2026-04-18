@@ -11,6 +11,23 @@
   </head>
   <body>
     <main class="app-shell">
+      <section class="tracker" aria-label="주간 체크 현황">
+        <div class="tracker-head">
+          <div>
+            <p class="eyebrow">Weekly Check</p>
+            <h2 class="tracker-title">이번 주 축적 진행</h2>
+          </div>
+          <div class="tracker-summary">
+            <strong id="todayCount">0/3</strong>
+            <span>오늘 축적</span>
+          </div>
+        </div>
+        <p class="tracker-copy" id="trackerCopy">
+          오늘 3칸 중 0칸이 채워졌어요. 천천히 쌓아보세요.
+        </p>
+        <div class="week-strip" id="weekStrip"></div>
+      </section>
+
       <header class="hero">
         <p class="eyebrow">Daily Img Mix MVP</p>
         <h1>사진의 아주 일부만 뽑아<br />계속 중첩합니다.</h1>

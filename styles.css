@@ -56,7 +56,8 @@ input {
 }
 
 .hero,
-.controls {
+.controls,
+.tracker {
   padding: 20px;
   border: 1px solid var(--line);
   border-radius: var(--radius);
@@ -72,6 +73,125 @@ input {
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--muted);
+}
+
+.tracker {
+  display: grid;
+  gap: 14px;
+}
+
+.tracker-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.tracker-title {
+  margin: 0;
+  font-size: 1.2rem;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+}
+
+.tracker-summary {
+  min-width: 92px;
+  padding: 12px 14px;
+  border-radius: 18px;
+  background: rgba(22, 34, 28, 0.05);
+  text-align: right;
+}
+
+.tracker-summary strong,
+.tracker-summary span {
+  display: block;
+}
+
+.tracker-summary strong {
+  font-size: 1.1rem;
+}
+
+.tracker-summary span,
+.tracker-copy,
+.day-label,
+.day-count {
+  color: var(--muted);
+}
+
+.tracker-copy {
+  margin: 0;
+  line-height: 1.45;
+}
+
+.week-strip {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.day-card {
+  padding: 12px 8px 10px;
+  border-radius: 18px;
+  background: rgba(22, 34, 28, 0.04);
+  border: 1px solid rgba(22, 34, 28, 0.06);
+  text-align: center;
+}
+
+.day-card.is-today {
+  background: rgba(34, 55, 43, 0.08);
+  border-color: rgba(34, 55, 43, 0.16);
+}
+
+.day-card.is-complete {
+  background: rgba(34, 55, 43, 0.14);
+}
+
+.day-label,
+.day-count {
+  display: block;
+  font-size: 0.77rem;
+}
+
+.day-label {
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.day-meter {
+  position: relative;
+  height: 70px;
+  border-radius: 999px;
+  background: rgba(22, 34, 28, 0.07);
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+}
+
+.day-fill {
+  width: 100%;
+  border-radius: inherit;
+  background: linear-gradient(180deg, #2f4739, #1b2d23);
+  min-height: 8px;
+  transition: height 220ms ease;
+}
+
+.day-check {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.92);
+  opacity: 0;
+  transition: opacity 180ms ease;
+}
+
+.day-card.is-complete .day-check {
+  opacity: 1;
+}
+
+.day-count {
+  margin-top: 8px;
 }
 
 .hero h1 {
@@ -224,5 +344,9 @@ input {
 
   .hint {
     grid-column: 1 / -1;
+  }
+
+  .tracker-copy {
+    max-width: 70%;
   }
 }
