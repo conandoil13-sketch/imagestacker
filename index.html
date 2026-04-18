@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <title>Daily Img Mix</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="hero">
+        <p class="eyebrow">Daily Img Mix MVP</p>
+        <h1>사진의 아주 일부만 뽑아<br />계속 중첩합니다.</h1>
+        <p class="hero-copy">
+          매번 업로드한 사진의 랜덤한 작은 정사각형 영역만 추출해서 같은 캔버스에
+          겹겹이 누적합니다.
+        </p>
+      </header>
+
+      <section class="controls" aria-label="업로드 컨트롤">
+        <button class="primary-action" id="cameraButton" type="button">
+          카메라로 찍기
+        </button>
+        <button class="secondary-action" id="galleryButton" type="button">
+          갤러리에서 선택
+        </button>
+        <button class="ghost-action" id="clearButton" type="button">
+          캔버스 비우기
+        </button>
+        <p class="hint">
+          데스크톱에서는 이미지를 이 영역이나 아래 캔버스로 드래그해서 올릴 수 있어요.
+        </p>
+      </section>
+
+      <section class="board-wrap">
+        <div
+          class="board"
+          id="board"
+          aria-label="업로드한 사진 조각이 쌓이는 캔버스"
+        >
+          <div class="empty-state" id="emptyState">
+            <p>첫 사진을 올리면 시작됩니다.</p>
+            <span>작은 영역 추출 후 전체 캔버스에 중첩, 투명도 5~25%</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="controls controls-bottom" aria-label="결과 저장">
+        <button class="primary-action" id="downloadButton" type="button">
+          결과 다운로드
+        </button>
+        <p class="hint">지금까지 중첩된 이미지를 한 장의 파일로 저장합니다.</p>
+      </section>
+
+      <input
+        id="cameraInput"
+        class="sr-only"
+        type="file"
+        accept="image/*"
+        capture="environment"
+      />
+      <input id="galleryInput" class="sr-only" type="file" accept="image/*" />
+    </main>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
